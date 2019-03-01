@@ -1,0 +1,13 @@
+Add-LocalGroupMember -Group "Administrators" -Member DOMAIN\Enterprise-SCCM-Admins, DOMAIN\Enterprise-SCCM-Servers
+Import-Module ServerManager
+
+# The Features.txt file must be in the working folder.
+$(Get-Content .\SITECODE_SCDP_Features.txt) | Add-WindowsFeature
+
+# The FW-Rules-SCCM.wfw file must be in the working folder.
+set-netfirewallrule -displaygroup ‘File and Printer Sharing’ -enabled true
+
+# The no_sms_on_drive.sms file must be in the working folder.
+Copy-Item .\no_sms_on_drive.sms C:\
+Copy-Item .\no_sms_on_drive.sms E:\
+Copy-Item .\no_sms_on_drive.sms P:\
