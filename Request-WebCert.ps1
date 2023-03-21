@@ -8,4 +8,4 @@ $ME = ([System.Net.Dns]::GetHostByName($env:computerName)).HostName
 cd Cert:\LocalMachine\My
 
 #Request the Web Cert
-Get-Certificate -Template $CertTemplateName -Url ldap: -DnsName $ME -SubjectName CN=$MY
+Get-Certificate -Template $CertTemplateName -Url ldap: -DnsName $ME -SubjectName CN=$ME
