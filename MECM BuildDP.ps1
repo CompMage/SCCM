@@ -1,6 +1,6 @@
 # Setup MECM DP Based on 2103 Req. 
 
-#Transfers Roles from SILCIO-SCDP03 to current server.
+#Transfers Roles from Old Seerver is present to current server.
 Get-WindowsFeature -ComputerName SourceHostName | ? { $_.Installed } | Select Name | foreach{Add-WindowsFeature $_.name}
 
 # The no_sms_on_drive.sms file must be in the working folder. Install Client first.
